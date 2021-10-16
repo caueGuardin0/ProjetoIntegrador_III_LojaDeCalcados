@@ -10,10 +10,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>ACCEL Tenis World</title>
     </head>
-    <div>Menu</div>
-    <a href="cliente/cadastro.jsp">Cadastrar clientes</a><br/>
-    <a href="cliente/ListarClientesServlet">Listar clientes</a>
-    </body>
+    <body class="container">
+        <c:import url="uteis/header.jsp"/>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="cliente/menuClientes.jsp">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="cliente/ListarClientesServlet">Produtos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </nav>
+</body>
 </html>

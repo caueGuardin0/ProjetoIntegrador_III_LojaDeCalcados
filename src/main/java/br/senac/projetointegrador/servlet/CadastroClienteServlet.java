@@ -63,6 +63,7 @@ public class CadastroClienteServlet extends HttpServlet {
 
             if ("1".equals(ope)) {
                 ClienteDAO.atualizarCliente(cliente);
+                response.sendRedirect(request.getContextPath() + "/uteis/sucesso.jsp");
             } else {
                 ClienteDAO.inserirClientes(cliente);
                 response.sendRedirect(request.getContextPath() + "/uteis/sucesso.jsp");
@@ -83,9 +84,10 @@ public class CadastroClienteServlet extends HttpServlet {
             Cliente cliente = ClienteDAO.getClientePorId(id);
             req.setAttribute("clienteAtualizacao", cliente);
             req.getRequestDispatcher("/cliente/cadastro.jsp").forward(req, resp);
+            
         } else {
             ClienteDAO.deletarCliente(id);
-            resp.sendRedirect(req.getContextPath() + "/cliente/ListarClientesServlet");
+            //resp.sendRedirect(req.getContextPath() + "/cliente/ListarClientesServlet");
         }
     }
 
