@@ -12,9 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-        <h1>Hello World!</h1>
-        <h2>${pageContext.request.contexPath}</h2>
-        
-    
+    <div>Menu</div>
+    <a href="cliente/cadastro.jsp">Cadastrar clientes</a><br/>
+    <a href="cliente/ListarClientesServlet">Listar clientes</a>
     </body>
 </html>

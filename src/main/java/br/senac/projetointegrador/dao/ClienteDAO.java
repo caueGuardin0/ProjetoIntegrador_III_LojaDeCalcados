@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class ClienteDAO {
     
-    public List<Cliente> getClientes(){
+    public static List<Cliente> getClientes(){
         
        List<Cliente> clientes = new ArrayList<>();
        String query = "select * from cliente";
@@ -63,6 +63,28 @@ public class ClienteDAO {
        }
        return clientes;
         
+    }
+    
+    public static void inserirClientes(Cliente cliente) throws SQLException{
+        
+        String query = "INSERT INTO cliente(id, cpf, nome, telefone, sexo, cep, cidade, numero_log, logradouro, complemento_log, email, data_nasc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        Connection con = Conexao.getConexao();
+        
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, cliente.getId());
+        ps.setString(2, cliente.getCpf());
+        ps.setString(3, cliente.getNome());
+        ps.setString(4, cliente.getTelefone());
+        ps.setString(5, cliente.getSexo());
+        ps.setString(6, cliente.getCep());
+        ps.setString(7, cliente.getCidade());
+        ps.setString(8, cliente.getNumero_log());
+        ps.setString(9, cliente.getLogradouro());
+        ps.setString(10, cliente.getComplemento_log());
+        ps.setString(11, cliente.getEmail());
+        ps.setString(12, cliente.getData_nasc());
+        ps.execute();
     }
     
 }

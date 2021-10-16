@@ -15,6 +15,7 @@ import lombok.Setter;
 @Setter
 public class Cliente {
     
+    private String id;
     private String cpf;
     private String nome;
     private String telefone;
@@ -29,7 +30,8 @@ public class Cliente {
     
     @Override
     public String toString() {
-        return "cpf=" + cpf + 
+        return "id=" + id +
+               "cpf=" + cpf + 
                ", nome=" + nome + 
                ", telefone=" + telefone + 
                ", sexo=" + sexo + 
@@ -40,6 +42,5 @@ public class Cliente {
                ", complemento_log=" + complemento_log + 
                ", email=" + email + 
                ", data_nasc=" + data_nasc;
-    }
-    
+    }    
 }
