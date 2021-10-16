@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de clientes</title>
+        <title>Cadastro de Clientes</title>
     </head>
     <body class="container">
         <c:import url="../uteis/header.jsp"/>

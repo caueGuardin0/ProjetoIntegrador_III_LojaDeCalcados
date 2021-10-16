@@ -5,7 +5,6 @@
  */
 package br.senac.projetointegrador.entidades;
 
-import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
 /**
@@ -29,6 +28,7 @@ public class Cliente {
     private String email;
     private String data_nasc;
     
+    /*
     @Override
     public String toString() {
         return "id=" + id +
@@ -44,4 +44,5 @@ public class Cliente {
                ", email=" + email + 
                ", data_nasc=" + data_nasc;
     }    
+*/
 }
