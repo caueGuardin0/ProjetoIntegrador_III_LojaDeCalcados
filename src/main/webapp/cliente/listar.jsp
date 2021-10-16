@@ -17,25 +17,28 @@
         <table>
             <thead>
             <td>CPF</td><td>Nome</td><td>Telefone</td><td>Sexo</td><td>Cep</td><td>Cidade</td><td>Numero</td><td>Logradouro</td><td>Complemento</td><td>E-mail</td><td>Data Nascimento</td>
-            </thead>
-            <tbody>
-                <c:forEach var="cliente" items="${listaClientes}">
-                    <tr>
-                        <td>${cliente.cpf}</td>
-                        <td>${cliente.nome}</td>
-                        <td>${cliente.telefone}</td>
-                        <td>${cliente.sexo}</td>
-                        <td>${cliente.cep}</td>
-                        <td>${cliente.cidade}</td>
-                        <td>${cliente.numero_log}</td>
-                        <td>${cliente.logradouro}</td>
-                        <td>${cliente.complemento_log}</td>
-                        <td>${cliente.email}</td>
-                        <td>${cliente.data_nasc}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </body>
-    <a href="${pageContext.request.contextPath}/index.jsp">Voltar</a>
+        </thead>
+        <tbody>
+            <c:forEach var="cliente" items="${listaClientes}">
+                <tr>
+                    <td>${cliente.cpf}</td>
+                    <td>${cliente.nome}</td>
+                    <td>${cliente.telefone}</td>
+                    <td>${cliente.sexo}</td>
+                    <td>${cliente.cep}</td>
+                    <td>${cliente.cidade}</td>
+                    <td>${cliente.numero_log}</td>
+                    <td>${cliente.logradouro}</td>
+                    <td>${cliente.complemento_log}</td>
+                    <td>${cliente.email}</td>
+                    <td>${cliente.data_nasc}</td>
+                    <td><a href="CadastroClienteServlet?idUsuario=${cliente.id}&ope=1">Atualizar</a></td>
+                    <td><a href="CadastroClienteServlet?idUsuario=${cliente.id}">Deletar</a></td>
+
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+</body>
+<a href="${pageContext.request.contextPath}/index.jsp">Voltar</a>
 </html>

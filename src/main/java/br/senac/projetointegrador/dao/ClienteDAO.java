@@ -33,6 +33,7 @@ public class ClienteDAO {
            ResultSet rs = ps.executeQuery();
            while (rs.next()) {
                Cliente cliente = new Cliente();
+               String id = rs.getString("id");
                String cpf = rs.getString("cpf");
                String nome = rs.getString("nome");
                String telefone = rs.getString("telefone");
@@ -45,6 +46,7 @@ public class ClienteDAO {
                String email = rs.getString("email");
                String data_nasc = rs.getString("data_nasc");
                
+               cliente.setId(id);
                cliente.setCpf(cpf);
                cliente.setNome(nome);
                cliente.setTelefone(telefone);
@@ -85,6 +87,90 @@ public class ClienteDAO {
         ps.setString(11, cliente.getEmail());
         ps.setString(12, cliente.getData_nasc());
         ps.execute();
+    }
+    
+    public static boolean deletarCliente(String id){
+        boolean ok = true;
+        String query = "DELETE FROM cliente WHERE id =?";
+        Connection con = Conexao.getConexao();
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ok = false;
+        }
+        return ok;
+    }
+    
+    public static Cliente getClientePorId(String id){
+        
+       Cliente cliente = null;
+       String query = "select * from cliente WHERE id = ?";
+       
+       Connection con = Conexao.getConexao();
+       try {
+           PreparedStatement ps = con.prepareStatement(query);
+           ps.setString(1, id);
+           ResultSet rs = ps.executeQuery();
+           while (rs.next()) {
+               cliente = new Cliente();
+               String cpf = rs.getString("cpf");
+               String nome = rs.getString("nome");
+               String telefone = rs.getString("telefone");
+               String sexo = rs.getString("sexo");
+               String cep = rs.getString("cep");
+               String cidade = rs.getString("cidade");
+               String logradouro = rs.getString("logradouro");
+               String numero_log = rs.getString("numero_log");
+               String complemento_log = rs.getString("complemento_log");
+               String email = rs.getString("email");
+               String data_nasc = rs.getString("data_nasc");
+               
+               cliente.setId(id);
+               cliente.setCpf(cpf);
+               cliente.setNome(nome);
+               cliente.setTelefone(telefone);
+               cliente.setSexo(sexo);
+               cliente.setCep(cep);
+               cliente.setCidade(cidade);
+               cliente.setLogradouro(logradouro);
+               cliente.setNumero_log(numero_log);
+               cliente.setComplemento_log(complemento_log);
+               cliente.setEmail(email);
+               cliente.setData_nasc(data_nasc);
+           }
+       } catch (SQLException ex) {
+           Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return cliente;
+        
+    }
+    
+    public static boolean atualizarCliente(Cliente cliente){
+        boolean ok = true;
+        String query = "UPDATE cliente SET nome=?, telefone=?, sexo=?, cep=?, cidade=?, numero_log=?, logradouro=?, complemento_log=?, email=? WHERE id =?";
+        Connection con = Conexao.getConexao();
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cliente.getNome());
+            ps.setString(2, cliente.getTelefone());
+            ps.setString(3, cliente.getSexo());
+            ps.setString(4, cliente.getCep());
+            ps.setString(5, cliente.getCidade());
+            ps.setString(6, cliente.getNumero_log());
+            ps.setString(7, cliente.getLogradouro());
+            ps.setString(8, cliente.getComplemento_log());
+            ps.setString(9, cliente.getEmail());
+            ps.setString(10, cliente.getId());
+            ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ok = false;
+        }
+        return ok;
     }
     
 }
