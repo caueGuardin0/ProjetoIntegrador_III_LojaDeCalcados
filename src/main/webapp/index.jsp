@@ -21,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="cliente/menuClientes.jsp">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="cliente/ListarClientesServlet">Produtos</a>
+                        <a class="nav-link active" aria-current="page" href="produto/menuProduto.jsp">Produtos</a>
                     </li>
                 </ul>
             </div>

@@ -8,6 +8,14 @@
         <servlet-name>ListarClientesServlet</servlet-name>
         <servlet-class>br.senac.projetointegrador.servlet.ListarClientesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarProdutosServlet</servlet-name>
+        <servlet-class>br.senac.projetointegrador.servlet.ListarProdutosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastroProdutosServlet</servlet-name>
+        <servlet-class>br.senac.projetointegrador.servlet.CadastroProdutosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroClienteServlet</servlet-name>
         <url-pattern>/cliente/CadastroClienteServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>ListarClientesServlet</servlet-name>
         <url-pattern>/cliente/ListarClientesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroProdutosServlet</servlet-name>
+        <url-pattern>/produto/CadastroProdutosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProdutosServlet</servlet-name>
+        <url-pattern>/produto/ListarProdutosServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

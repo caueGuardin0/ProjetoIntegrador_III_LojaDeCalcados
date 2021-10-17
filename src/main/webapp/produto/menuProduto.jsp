@@ -14,7 +14,7 @@
     <body>
         <c:import url="../uteis/header.jsp"/>
         <div>Menu</div>
-        <a href="${pageContext.request.contextPath}/produto/cadastro.jsp">Cadastrar clientes</a><br/>
-        <a href="${pageContext.request.contextPath}/produto/ListarClientesServlet">Listar clientes</a>
+        <a href="${pageContext.request.contextPath}/produto/cadastro.jsp">Cadastrar Produtos</a><br/>
+        <a href="${pageContext.request.contextPath}/produto/ListarProdutosServlet">Listar Produtos</a>
     </body>
 </html>
