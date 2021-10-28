@@ -52,3 +52,49 @@ function buscarClienteNome() {
                     });
                 }
             }
+                     
+function mostrarTelaAlertaP(texto) {
+    $("#txtAlerta").html(texto);
+    $('#tabelaProdutos tbody').empty();
+    $("#msgAlert").css("display", "block");
+    setTimeout(function () {
+        $("#msgAlert").css("display", "none");
+    }, 3000);
+}
+
+function buscarProdutoMarca() {
+                    var campoBusca = $("#marcaProduto");
+            var marcaProduto = campoBusca.val();
+            var tamanhoBusca = marcaProduto.length;
+            if (tamanhoBusca < 3) {
+                mostrarTelaAlertaP("Digite pelo menos 3 ou mais caracteres");
+            } else {
+
+                $('#tabelaProdutos tbody').empty();
+                var url = "BuscaProdutoServlet?marcaProduto=" + marcaProduto;
+                $.ajax(url).done(function (resposta) {
+
+                    // Retorno Servlet
+                    var jsonProdutos = JSON.parse(resposta);
+                    if (jsonProdutos.length === 0) {
+                        mostrarTelaAlertaP("Nenhum resultado foi encontrato com os parametros informados");
+                    }
+                    console.log(jsonProdutos);
+                    jsonProdutos.forEach(function (produto) {
+                        // Adicionando resultado na lista
+                        $("#tabelaProdutos").find('tbody')
+                                .append($('<tr>')
+                                        .append($('<td>').append(produto.marca))
+                                        .append($('<td>').append(produto.modelo))
+                                        .append($('<td>').append(produto.modalidade))
+                                        .append($('<td>').append(produto.preco))
+                                        .append($('<td>').append(produto.cor))
+                                        .append($('<td>').append(produto.tamanho))
+                                        .append($('<td>').append(produto.quantidade))
+                                        );
+                    });
+                }).fail(function () {
+                        console.log("Erro");
+                    });
+                }
+                                        }

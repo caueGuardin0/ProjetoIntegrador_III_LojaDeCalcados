@@ -5,8 +5,8 @@
  */
 package br.senac.projetointegrador.servlet;
 
-import br.senac.projetointegrador.dao.ClienteDAO;
-import br.senac.projetointegrador.entidades.Cliente;
+import br.senac.projetointegrador.dao.ProdutoDAO;
+import br.senac.projetointegrador.entidades.Produto;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,19 +20,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author caueg
  */
-public class BuscaClienteServlet extends HttpServlet {
-
+public class BuscaProdutoServlet extends HttpServlet {
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nomeCliente = request.getParameter("nomeCliente");
-        List<Cliente> clientes = ClienteDAO.getClientePorNome(nomeCliente);
-        String clientesJson = new Gson().toJson(clientes);
+        String marcaProduto = request.getParameter("marcaProduto");
+        List<Produto> produtos = ProdutoDAO.getProdutoPorMarca(marcaProduto);
+        String produtosJson = new Gson().toJson(produtos);
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
-        pw.write(clientesJson);
+        pw.write(produtosJson);
     }
+
 
 
 }

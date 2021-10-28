@@ -148,4 +148,42 @@ public class ProdutoDAO {
         }
         return ok;
     }
+    
+    public static List<Produto> getProdutoPorMarca(String nomeParam) {
+
+        nomeParam = nomeParam.toUpperCase();
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from produto WHERE UPPER(marca) LIKE ?";
+
+        Connection con = Conexao.getConexao();
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, nomeParam + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Produto produto = new Produto();
+                String marca = rs.getString("marca");
+                String modelo = rs.getString("modelo");
+                String modalidade = rs.getString("modalidade");
+                String preco = rs.getString("preco");
+                String cor = rs.getString("cor");
+                String tamanho = rs.getString("tamanho");
+                String quantidade = rs.getString("quantidade");
+                
+                
+                produto.setMarca(marca);
+                produto.setModelo(modelo);
+                produto.setModalidade(modalidade);
+                produto.setPreco(preco);
+                produto.setCor(cor);
+                produto.setTamanho(tamanho);
+                produto.setQuantidade(quantidade);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;
+
+    }
 }
