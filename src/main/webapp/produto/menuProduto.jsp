@@ -18,4 +18,5 @@
         <a href="${pageContext.request.contextPath}/produto/ListarProdutosServlet">Listar Produtos</a></br>
         <a href="${pageContext.request.contextPath}/produto/busca.jsp">Buscar Produtos</a>
     </body>
+    <a href="${pageContext.request.contextPath}/index.jsp">Voltar</a>
 </html>

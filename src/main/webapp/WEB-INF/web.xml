@@ -28,6 +28,10 @@
         <servlet-name>BuscaProdutoServlet</servlet-name>
         <servlet-class>br.senac.projetointegrador.servlet.BuscaProdutoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarClientesVendaServlet</servlet-name>
+        <servlet-class>br.senac.projetointegrador.servlet.ListarClientesVendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroClienteServlet</servlet-name>
         <url-pattern>/cliente/CadastroClienteServlet</url-pattern>
@@ -53,8 +57,16 @@
         <url-pattern>/cliente/BuscaClienteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>BuscaClienteServlet</servlet-name>
+        <url-pattern>/venda/BuscaClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>BuscaProdutoServlet</servlet-name>
         <url-pattern>/produto/BuscaProdutoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarClientesVendaServlet</servlet-name>
+        <url-pattern>/venda/ListarClientesVendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

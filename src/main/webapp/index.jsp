@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="produto/menuProduto.jsp">Produtos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="venda/menuVenda.jsp">Venda</a>
+                    </li>
                 </ul>
             </div>
         </nav>
