@@ -29,9 +29,9 @@ public static void inserirVenda(Venda venda) throws SQLException {
         Connection con = Conexao.getConexao();
 
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, venda.getIdCliente);
-        ps.setString(2, venda.getIdProduto);
-        ps.setString(3, venda.getQtdProduto);
+        ps.setString(1, venda.getIdCliente());
+        ps.setString(2, venda.getIdProduto());
+        ps.setString(3, venda.getQtdProduto());
         ps.execute();
     }
 }
