@@ -32,6 +32,10 @@
         <servlet-name>ListarClientesVendaServlet</servlet-name>
         <servlet-class>br.senac.projetointegrador.servlet.ListarClientesVendaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastroVendaServlet</servlet-name>
+        <servlet-class>br.senac.projetointegrador.servlet.CadastroVendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroClienteServlet</servlet-name>
         <url-pattern>/cliente/CadastroClienteServlet</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>ListarClientesVendaServlet</servlet-name>
         <url-pattern>/venda/ListarClientesVendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroVendaServlet</servlet-name>
+        <url-pattern>/venda/CadastroVendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
